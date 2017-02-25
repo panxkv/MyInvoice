@@ -1,7 +1,7 @@
 $(document).ready(function(){
 
-    $('.input').click(function(){
-        $(this).select()
+    $('input').click(function(){
+        $(this).select();
 
     });
 
@@ -9,9 +9,7 @@ $(document).ready(function(){
         format: 'dd-mm-yyyy'
 
     });
-
-
-
+    
     $('#invoice_date').datepicker().on('changeDate', function(){
         var date = $('#invoice_date').val();
         $('.invoice_header_date').empty();
