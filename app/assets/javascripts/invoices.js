@@ -5,8 +5,20 @@ function update_subtotal() {
         if (!isNaN(price)) subtotal += Number(price);
     });
     subtotal = subtotal.toFixed(2);
-    $('#subtotal').html(subtotal)
+    $('#subtotal').html(subtotal);
+
+    update_balance();
     
+}
+
+function update_balance() {
+    var total = Number($('#subtotal').html()) + Number($('#9').val());
+    total = total.toFixed(2);
+
+    $('.due').html(total);
+
+
+
 }
 
 function update_price() {
