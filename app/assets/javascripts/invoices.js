@@ -8,7 +8,7 @@ function update_subtotal() {
     $('#subtotal').html(subtotal);
 
     update_balance();
-    
+
 }
 
 function update_balance() {
@@ -16,7 +16,7 @@ function update_balance() {
     total = total.toFixed(2);
 
     $('.due').html(total);
-    
+
 }
 
 function update_price() {
@@ -26,7 +26,23 @@ function update_price() {
     isNaN(price) ? row.find('.price').html('NaN') : row.find('.price').html(price);
     update_subtotal();
 }
+
+function bind(main, modal) {
+    var n = main.val();
+    modal.empty();
+    modal.append(n);
+}
+
 function bind1() {
     $('.cost').blur(update_price);
     $('.qty').blur(update_price);
 }
+
+function bind2(main, modal) {
+    var n = main.text();
+    modal.empty();
+    modal.append(" " + n);
+}
+
+
+
