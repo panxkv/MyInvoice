@@ -16,9 +16,7 @@ function update_balance() {
     total = total.toFixed(2);
 
     $('.due').html(total);
-
-
-
+    
 }
 
 function update_price() {

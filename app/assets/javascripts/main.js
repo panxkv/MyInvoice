@@ -6,7 +6,18 @@ $(document).ready(function(){
     });
 
     $('.datepicker').datepicker({
-        format: 'yyyy-mm-dd'
+        format: 'dd-mm-yyyy'
+
+    });
+
+
+
+    $('#invoice_date').datepicker().on('changeDate', function(){
+        var date = $('#invoice_date').val();
+        $('.invoice_header_date').empty();
+        $('.invoice_header_date').append(date);
+        $(this).datepicker('hide');
+
     });
 
     $('#9').blur(update_balance);
@@ -23,5 +34,11 @@ $(document).ready(function(){
         	    $(this).parents('.item-row').remove();
                 update_subtotal();
         		if ($('.delete').length < 2) $('.delete').hide();
+    });
+
+    $('body').on('keyup', '#invoice_currency', function(){
+       var c = $(this).val();
+        $('.subtotal_currency').empty();
+        $('.subtotal_currency').append(" "+ c);
     });
 });
