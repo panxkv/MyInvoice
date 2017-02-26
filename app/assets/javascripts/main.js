@@ -5,13 +5,14 @@ $(document).ready(function(){
     });
 
     $('.datepicker').datepicker({
-        format: 'yyyy-mm-dd'
+        format: 'dd-mm-yyyy'
     });
 
     $('#invoice_date').datepicker().on('changeDate', function(){
         var date = $('#invoice_date').val();
         $('.invoice_header_date').empty();
         $('.invoice_header_date').append(date);
+        $(this).datepicker('hide');
     });
 
 
@@ -20,6 +21,9 @@ $(document).ready(function(){
     $('#addrow').click(function(){
         $('.item-row:last').after('<tr class="item-row"><td><input class="form-control item_name" placeholder="Item name" /></td><td><input class="form-control item_desc" placeholder="Item description" /></td><td><input class="form-control cost" value="0.00" /></td><td><input class="form-control qty" value="0" /></td><td class="price_td"><span class="price">0.00</span><span class="subtotal_currency"></span></td><td class="delete_td"><a class="delete" href="javascript:;" title="Remove row"><span class="ti-close"></span></a></td></tr>');
         if ($('.delete').length > 0) $('.delete').show();
+        $('input').click(function(){
+            $(this).select();
+        });
         bind1();
     });
     bind1();
