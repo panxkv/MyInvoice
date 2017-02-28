@@ -8,14 +8,17 @@ $(document).ready(function(){
         format: 'dd-mm-yyyy'
     });
 
+    $('.input-daterange').datepicker({
+        format: 'dd-mm-yyyy'
+    });
+
     $('#invoice_date').datepicker().on('changeDate', function(){
         var date = $('#invoice_date').val();
         $('.invoice_header_date').empty();
         $('.invoice_header_date').append(date);
         $(this).datepicker('hide');
     });
-
-
+    
     $('#9').blur(update_balance);
 
     $('#addrow').click(function(){
